@@ -1,31 +1,57 @@
+# Coffee Machine
 
-Coffee Machine
+Это консольная реализация кофемашины, написанная на языке Kotlin. Программа позволяет пользователям покупать различные виды кофе, наполнять машину ингредиентами, забирать деньги из машины и проверять оставшиеся ингредиенты и деньги.
+Требования
 
-This project is a simulation of a coffee machine written in Kotlin. It allows users to buy different types of coffee, fill the machine with ingredients, take money from the machine, and check the remaining ingredients and money.
-Project Description
+Для компиляции и запуска этого кода вам понадобится установленный компилятор Kotlin на вашей системе. Больше ничего не требуется!
 
-The Coffee Machine project is a console-based application that simulates the functionalities of a real coffee machine. It supports the following operations:
+## Как использовать
 
-    Buy Coffee: Users can choose between espresso, latte, and cappuccino. The machine checks if there are enough ingredients and disposable cups to make the selected coffee.
-    Fill Machine: Users can add more water, milk, coffee beans, and disposable cups to the machine.
-    Take Money: Users can take all the money accumulated in the machine.
-    Remaining Ingredients: Users can check the current state of the machine, including the amount of water, milk, coffee beans, disposable cups, and money.
-    Exit: Users can exit the application.
+Программа предлагает пользователю выбрать одно из нескольких действий: купить кофе, наполнить машину, забрать деньги или проверить оставшиеся ресурсы. Для выполнения действий используется текстовый ввод.
+## Доступные команды
 
-Classes and Methods
-Ingridients
+    buy: Купить кофе (эспрессо, латте или капучино).
+    fill: Наполнить машину ингредиентами.
+    take: Забрать все деньги из машины.
+    remaining: Проверить оставшиеся ингредиенты и деньги.
+    exit: Выйти из программы.
 
-A data class that represents the ingredients available in the coffee machine.
+### Покупка кофе
+
+    Выберите 1 для эспрессо.
+    Выберите 2 для латте.
+    Выберите 3 для капучино.
+    Выберите back, чтобы вернуться в главное меню.
+
+### Наполнение машины
+
+    Введите количество миллилитров воды, которое хотите добавить.
+    Введите количество миллилитров молока, которое хотите добавить.
+    Введите количество граммов кофейных зерен, которое хотите добавить.
+    Введите количество одноразовых стаканчиков, которое хотите добавить.
+
+### Забор денег
+
+    Команда take позволяет забрать все деньги из кофемашины.
+
+### Проверка оставшихся ресурсов
+
+    Команда remaining выводит текущее состояние кофемашины: количество воды, молока, кофе, одноразовых стаканчиков и денег.
+
+## Детали реализации
+Класс Ingridients
+
+    Представляет ингредиенты, доступные в кофемашине.
 
 kotlin
 
 data class Ingridients(var water: Int, var milk: Int, var coffee: Int, var count: Int)
 
-Coffee
+### Абстрактный класс Coffee
 
-An abstract class that represents a type of coffee. It contains abstract properties for the amount of water, milk, coffee, and money required to make the coffee. It also includes methods to create a coffee and check if there are enough ingredients.
+    Представляет тип кофе и необходимые для его приготовления ингредиенты и стоимость.
+    Методы: createCoffee, isEnough.
 
-kotlin
 
 abstract class Coffee {
     abstract val water: Int
@@ -41,11 +67,10 @@ abstract class Coffee {
     data class cappuccino(...) : Coffee()
 }
 
-CoffeeMachine
+### Класс CoffeeMachine
 
-A class that represents the coffee machine. It includes properties for water, milk, coffee, disposable cups, and money. It also contains methods to perform various actions such as filling the machine, taking money, buying coffee, and checking the remaining ingredients.
-
-kotlin
+    Управляет состоянием кофемашины и выполняет действия, введенные пользователем.
+    Методы: fill, take, buy, action, remaining.
 
 class CoffeeMachine {
     var water = 400
@@ -63,13 +88,17 @@ class CoffeeMachine {
     fun remaining()
 }
 
-Main Function
+### Главная функция
 
-The entry point of the application. It creates an instance of the CoffeeMachine class and starts the action loop.
-
-kotlin
+    Точка входа в программу. Создает экземпляр класса CoffeeMachine и запускает основной цикл действий.
 
 fun main() {
     val coffeeMachine = CoffeeMachine()
     coffeeMachine.action()
 }
+
+## Благодарности
+
+Эта реализация кофемашины в консоли была создана для практики программирования на Kotlin и моделирует основные функции реальной кофемашины.
+
+Приятного использования!
