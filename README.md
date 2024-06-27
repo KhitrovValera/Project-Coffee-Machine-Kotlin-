@@ -96,7 +96,7 @@ fun main() {
     coffeeMachine.action()
 }
 
-Acknowledgments
+## Acknowledgments
 
 This console-based implementation of a coffee machine was created for practicing Kotlin programming and simulates the basic functions of a real coffee machine.
 
