@@ -72,24 +72,3 @@ fun main() {
     val coffeeMachine = CoffeeMachine()
     coffeeMachine.action()
 }
-
-How to Run
-
-    Clone the repository:
-
-sh
-
-git clone https://github.com/yourusername/coffeemachine.git
-
-    Navigate to the project directory:
-
-sh
-
-cd coffeemachine
-
-    Compile and run the program:
-
-sh
-
-kotlinc CoffeeMachine.kt -include-runtime -d CoffeeMachine.jar
-java -jar CoffeeMachine.jar
